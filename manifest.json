@@ -1,12 +1,9 @@
 {
-  "name": "Cryox Overlay Master",
-  "version": "0.1.0",
   "resolution": "1920x1080",
-  "scenes": {
-    "start": "start/starting.html",
-    "pause": "pause/brb.html",
-    "ending": "ending/ending.html"
-  },
-  "shared_engine": "js/engine.js",
-  "shared_css": "css/style.css"
+  "assets": {
+    "corner": "assets/frame/corner_master.png",
+    "side": "assets/frame/side_master.png",
+    "top": "assets/frame/top_master.png",
+    "emblem": "assets/frame/emblem_master.png"
+  }
 }
