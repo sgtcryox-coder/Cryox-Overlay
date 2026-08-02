@@ -3,7 +3,7 @@
   --w:1920px;
   --h:1080px;
   --rail:55px;
-  --corner:260px;
+  --corner:170px;
 }
 *{box-sizing:border-box}
 html,body{
@@ -17,13 +17,15 @@ html,body{
   position:relative;
   width:var(--w);
   height:var(--h);
-  background:transparent;
   overflow:hidden;
+  background:transparent;
 }
 .preview-background{
   position:absolute;
   inset:55px;
-  background:linear-gradient(135deg,#11151a,#030405);
+  background:
+    radial-gradient(circle at 50% 25%,rgba(110,15,20,.12),transparent 38%),
+    #080b0f;
 }
 .rail-h{
   position:absolute;
@@ -47,9 +49,9 @@ html,body{
 .rail-v.right{right:0;transform:scaleX(-1)}
 .corner{
   position:absolute;
-  width:260px;
-  height:260px;
-  background:url("../assets/frame/corner_master.png") center/contain no-repeat;
+  width:170px;
+  height:170px;
+  background:url("../assets/frame/corner_master.png") top left/contain no-repeat;
   z-index:20;
 }
 .corner.tl{top:0;left:0}
@@ -58,11 +60,12 @@ html,body{
 .corner.br{right:0;bottom:0;transform:scale(-1,-1)}
 .emblem{
   position:absolute;
-  z-index:30;
-  top:-8px;
+  top:-6px;
   left:50%;
-  width:720px;
-  height:300px;
+  width:520px;
+  height:220px;
   transform:translateX(-50%);
   object-fit:contain;
+  z-index:30;
+  pointer-events:none;
 }

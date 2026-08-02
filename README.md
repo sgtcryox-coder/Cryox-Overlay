@@ -1,18 +1,13 @@
-# Cryox Rahmentest
+# Cryox Rahmentest v3
 
-Öffne `frame-test.html` im Browser oder als lokale Browserquelle in OBS.
+Korrekturen:
+- weiße/checkerboard Hintergründe entfernt
+- echte Transparenz
+- horizontale und vertikale Leisten wieder durchgehend
+- Ecken liegen darüber, dadurch keine Lücken
+- Emblem separat
 
 OBS:
-- Breite: 1920
-- Höhe: 1080
-- FPS: 60
-
-Das Emblem ist modular. Entferne diese Zeile, um es auszublenden:
-
-```html
-<img class="emblem" src="assets/frame/emblem_master.png" alt="">
-```
-
-Oben und unten verwenden dieselbe Datei.
-Links und rechts verwenden dieselbe Datei.
-Alle vier Ecken verwenden dieselbe Datei und werden nur gespiegelt.
+- 1920 × 1080
+- lokale Browserquelle
+- CSS-Feld leer
