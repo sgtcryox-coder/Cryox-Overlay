@@ -1,0 +1,653 @@
+:root {
+  --overlay-width: 1920px;
+  --overlay-height: 1080px;
+
+  /* Bestätigte Steinpositionen: zwei links, drei rechts. */
+  --runestone-01-left: 78px;
+  --runestone-01-bottom: 198px;
+  --runestone-01-height: 510px;
+  --runestone-02-left: 360px;
+  --runestone-02-bottom: 160px;
+  --runestone-02-height: 565px;
+  --runestone-03-right: 360px;
+  --runestone-03-bottom: 198px;
+  --runestone-03-height: 500px;
+  --runestone-04-right: 205px;
+  --runestone-04-bottom: 125px;
+  --runestone-04-height: 405px;
+  --runestone-05-right: 30px;
+  --runestone-05-bottom: 210px;
+  --runestone-05-height: 490px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+#overlay {
+  position: relative;
+  width: var(--overlay-width);
+  height: var(--overlay-height);
+  overflow: hidden;
+  background: transparent;
+}
+
+.overlay-layer,
+.atmosphere-element,
+.runestone-portal,
+.runestone,
+.raven,
+.fire-flame,
+.fire-bowl {
+  position: absolute;
+  display: block;
+  margin: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.overlay-background,
+.overlay-frame {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-background {
+  z-index: 1;
+  object-fit: cover;
+}
+
+/*
+ * Gemeinsame Atmosphäre für alle modularen Ebenen.
+ * Die Effekte liegen separat und lassen sich mit ?atmosphere=0 abschalten.
+ */
+.atmosphere-back,
+.atmosphere-ground,
+.atmosphere-front,
+.scene-grade {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.atmosphere-back {
+  z-index: 5;
+  background:
+    radial-gradient(ellipse 616px 460px at 50% 61%, rgba(132, 20, 8, 0.12) 0%, rgba(75, 9, 4, 0.055) 44%, transparent 75%),
+    radial-gradient(ellipse 760px 520px at 31% 17%, rgba(88, 117, 151, 0.075) 0%, transparent 68%);
+  mix-blend-mode: screen;
+}
+
+.atmosphere-ground {
+  z-index: 15;
+}
+
+.portal-ground-shadow,
+.portal-ground-light {
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.portal-ground-shadow {
+  bottom: 196px;
+  width: 516px;
+  height: 72px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.35) 46%, transparent 76%);
+  filter: blur(10px);
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+}
+
+.portal-ground-light {
+  bottom: 168px;
+  width: 588px;
+  height: 300px;
+  background: radial-gradient(ellipse at 50% 38%, rgba(224, 60, 11, 0.16) 0%, rgba(150, 18, 4, 0.075) 36%, transparent 72%);
+  filter: blur(18px);
+  opacity: 0.78;
+  mix-blend-mode: screen;
+}
+
+.runestone-portal {
+  z-index: 10;
+  left: 50%;
+  bottom: 220px;
+  height: 560px;
+  width: auto;
+  object-fit: contain;
+  transform: translateX(-50%) scaleX(1.2);
+  transform-origin: center bottom;
+  opacity: 0.96;
+  filter:
+    brightness(0.82)
+    contrast(0.94)
+    saturate(0.8)
+    blur(0.18px)
+    drop-shadow(0 12px 15px rgba(0, 0, 0, 0.76));
+}
+
+.runestones-layer,
+.ravens-layer,
+.fire-layer {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.runestones-layer {
+  z-index: 20;
+}
+
+.runestones-layer::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    radial-gradient(ellipse 105px 27px at 148px 877px, rgba(0, 0, 0, 0.72) 0%, transparent 74%),
+    radial-gradient(ellipse 135px 32px at 455px 921px, rgba(0, 0, 0, 0.75) 0%, transparent 74%),
+    radial-gradient(ellipse 112px 28px at 1510px 882px, rgba(0, 0, 0, 0.73) 0%, transparent 74%),
+    radial-gradient(ellipse 90px 24px at 1650px 954px, rgba(0, 0, 0, 0.7) 0%, transparent 74%),
+    radial-gradient(ellipse 105px 27px at 1830px 869px, rgba(0, 0, 0, 0.72) 0%, transparent 74%);
+  filter: blur(8px);
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+}
+
+.runestone {
+  z-index: 1;
+  height: auto;
+  object-fit: contain;
+  transform-origin: center bottom;
+  opacity: 0.965;
+  filter:
+    brightness(0.82)
+    contrast(0.94)
+    saturate(0.82)
+    blur(0.16px)
+    drop-shadow(0 10px 13px rgba(0, 0, 0, 0.72));
+}
+
+.runestone-01 {
+  left: var(--runestone-01-left);
+  bottom: var(--runestone-01-bottom);
+  height: var(--runestone-01-height);
+}
+
+.runestone-02 {
+  left: var(--runestone-02-left);
+  bottom: var(--runestone-02-bottom);
+  height: var(--runestone-02-height);
+}
+
+.runestone-03 {
+  right: var(--runestone-03-right);
+  bottom: var(--runestone-03-bottom);
+  height: var(--runestone-03-height);
+}
+
+.runestone-04 {
+  right: var(--runestone-04-right);
+  bottom: var(--runestone-04-bottom);
+  height: var(--runestone-04-height);
+}
+
+.runestone-05 {
+  right: var(--runestone-05-right);
+  bottom: var(--runestone-05-bottom);
+  height: var(--runestone-05-height);
+}
+
+.ravens-layer {
+  z-index: 30;
+}
+
+.raven {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform-origin: center;
+  opacity: 0.94;
+  filter:
+    brightness(0.7)
+    contrast(0.92)
+    saturate(0.58)
+    blur(0.14px)
+    drop-shadow(0 7px 10px rgba(0, 0, 0, 0.7));
+}
+
+.raven-flying-01 {
+  top: 119px;
+  left: 499px;
+  width: 196px;
+}
+
+.raven-flying-02 {
+  top: 52px;
+  left: 313px;
+  width: 167px;
+}
+
+.raven-flying-03 {
+  top: 117px;
+  left: 1394px;
+  width: 219px;
+}
+
+.raven-sitting-left {
+  top: 257px;
+  left: 67px;
+  height: 152px;
+  transform: rotate(20deg);
+  transform-origin: center bottom;
+}
+
+.raven-sitting-right-01 {
+  top: 436px;
+  left: 1606px;
+  height: 178px;
+  transform: rotate(-10deg) scale(0.98);
+  transform-origin: center bottom;
+}
+
+.raven-sitting-right-02 {
+  top: 731px;
+  left: 1616px;
+  height: 266px;
+}
+
+.fire-layer {
+  /* Beide Feuergruppen liegen garantiert vor sämtlichen Runensteinen. */
+  z-index: 60;
+  isolation: isolate;
+}
+
+.fire-light {
+  z-index: 0;
+  width: 350px;
+  height: 365px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 65%, rgba(255, 103, 25, 0.28) 0%, rgba(188, 31, 5, 0.14) 34%, rgba(91, 5, 2, 0.055) 56%, transparent 74%);
+  filter: blur(18px);
+  opacity: 0.78;
+  mix-blend-mode: screen;
+  transform-origin: center 72%;
+}
+
+.fire-light-left {
+  left: 101px;
+  bottom: 73px;
+}
+
+.fire-light-right {
+  right: 210px;
+  bottom: 37px;
+}
+
+.fire-bowl {
+  z-index: 1;
+  width: 162px;
+  height: auto;
+  filter:
+    brightness(0.76)
+    contrast(0.92)
+    saturate(0.72)
+    drop-shadow(0 9px 12px rgba(0, 0, 0, 0.76));
+}
+
+.fire-bowl-front {
+  z-index: 3;
+  clip-path: inset(37% 0 0 0);
+}
+
+.fire-bowl-left {
+  left: 195px;
+  bottom: 156px;
+}
+
+.fire-bowl-right {
+  right: 304px;
+  bottom: 120px;
+  transform: scaleX(-1);
+  z-index: 11;
+}
+
+.fire-flame {
+  z-index: 2;
+  width: 113px;
+  height: auto;
+  transform-origin: center bottom;
+  opacity: 0.95;
+  filter:
+    brightness(0.9)
+    contrast(0.93)
+    saturate(0.84)
+    drop-shadow(0 0 8px rgba(255, 65, 7, 0.62))
+    drop-shadow(0 0 20px rgba(165, 13, 2, 0.38));
+}
+
+.fire-sparks {
+  position: absolute;
+  display: block;
+  z-index: 14;
+  width: 92px;
+  height: 154px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.fire-sparks-left {
+  left: 232px;
+  bottom: 329px;
+}
+
+.fire-sparks-right {
+  right: 337px;
+  bottom: 293px;
+}
+
+.fire-spark {
+  --spark-drift: 0px;
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 190, 72, 0.98);
+  box-shadow:
+    0 0 5px rgba(255, 122, 22, 0.95),
+    0 0 10px rgba(221, 38, 5, 0.7);
+  opacity: 0;
+}
+
+.fire-spark:nth-child(1) {
+  --spark-drift: -13px;
+  left: 16%;
+  width: 3px;
+  height: 3px;
+}
+
+.fire-spark:nth-child(2) {
+  --spark-drift: 18px;
+  left: 35%;
+  width: 5px;
+  height: 5px;
+}
+
+.fire-spark:nth-child(3) {
+  --spark-drift: -8px;
+  left: 54%;
+}
+
+.fire-spark:nth-child(4) {
+  --spark-drift: 12px;
+  left: 71%;
+  width: 3px;
+  height: 3px;
+}
+
+.fire-spark:nth-child(5) {
+  --spark-drift: -19px;
+  left: 84%;
+  width: 2px;
+  height: 2px;
+}
+
+.fire-spark:nth-child(6) {
+  --spark-drift: 7px;
+  left: 45%;
+  width: 3px;
+  height: 3px;
+}
+
+.fire-flame-left {
+  left: 221px;
+  bottom: 219px;
+}
+
+.fire-flame-right {
+  right: 327px;
+  bottom: 183px;
+  transform: none;
+  z-index: 12;
+}
+
+.fire-bowl-right.fire-bowl-front {
+  z-index: 13;
+}
+
+.atmosphere-front {
+  z-index: 70;
+  background:
+    radial-gradient(ellipse 720px 95px at 50% 90%, rgba(121, 142, 156, 0.095) 0%, rgba(70, 86, 101, 0.045) 50%, transparent 78%),
+    radial-gradient(ellipse 610px 72px at 19% 83%, rgba(119, 139, 151, 0.08) 0%, transparent 75%),
+    radial-gradient(ellipse 650px 74px at 84% 86%, rgba(119, 139, 151, 0.075) 0%, transparent 75%);
+  filter: blur(9px);
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.scene-grade {
+  z-index: 90;
+  background:
+    radial-gradient(circle at 31% 18%, rgba(94, 125, 160, 0.055) 0%, transparent 38%),
+    linear-gradient(180deg, rgba(2, 7, 12, 0.015) 0%, rgba(2, 5, 8, 0.1) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+}
+
+.overlay-frame {
+  z-index: 100;
+  object-fit: fill;
+}
+
+.overlay-emblem {
+  z-index: 110;
+  top: 5px;
+  left: 50%;
+  width: 405px;
+  height: auto;
+  object-fit: contain;
+  transform: translateX(-50%);
+  transform-origin: center top;
+}
+
+/*
+ * Das Feuer lebt standardmäßig. Mit ?firemotion=0 lässt es sich einfrieren.
+ * ?motion=1 ergänzt weiterhin nur die dezente Bewegung der Flugraben.
+ */
+.motion-enabled .raven-flying-01 {
+  animation: raven-drift-a 9s ease-in-out infinite alternate;
+}
+
+.motion-enabled .raven-flying-02 {
+  animation: raven-drift-b 11s ease-in-out infinite alternate;
+}
+
+.motion-enabled .raven-flying-03 {
+  animation: raven-drift-c 10s ease-in-out infinite alternate;
+}
+
+.fire-motion-enabled .fire-flame-left {
+  animation: flame-flicker-left 1.67s linear infinite;
+  will-change: transform, opacity;
+}
+
+.fire-motion-enabled .fire-flame-right {
+  animation: flame-flicker-right 1.43s linear infinite;
+  will-change: transform, opacity;
+}
+
+.fire-motion-enabled .fire-light-left {
+  animation: fire-light-pulse-left 2.05s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.fire-motion-enabled .fire-light-right {
+  animation: fire-light-pulse-right 1.78s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.fire-motion-enabled .fire-spark {
+  animation-name: ember-rise;
+  animation-timing-function: cubic-bezier(0.2, 0.62, 0.42, 1);
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(1) {
+  animation-duration: 2.37s;
+  animation-delay: -0.72s;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(2) {
+  animation-duration: 2.81s;
+  animation-delay: -2.14s;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(3) {
+  animation-duration: 3.18s;
+  animation-delay: -1.43s;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(4) {
+  animation-duration: 2.62s;
+  animation-delay: -0.19s;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(5) {
+  animation-duration: 3.42s;
+  animation-delay: -2.75s;
+}
+
+.fire-motion-enabled .fire-sparks-left .fire-spark:nth-child(6) {
+  animation-duration: 2.96s;
+  animation-delay: -1.05s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(1) {
+  animation-duration: 2.73s;
+  animation-delay: -1.67s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(2) {
+  animation-duration: 3.11s;
+  animation-delay: -0.38s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(3) {
+  animation-duration: 2.49s;
+  animation-delay: -2.22s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(4) {
+  animation-duration: 3.36s;
+  animation-delay: -1.26s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(5) {
+  animation-duration: 2.89s;
+  animation-delay: -0.86s;
+}
+
+.fire-motion-enabled .fire-sparks-right .fire-spark:nth-child(6) {
+  animation-duration: 3.57s;
+  animation-delay: -2.94s;
+}
+
+@keyframes raven-drift-a {
+  to { transform: translate(9px, -5px) rotate(-1deg); }
+}
+
+@keyframes raven-drift-b {
+  to { transform: translate(-7px, 7px) rotate(1.2deg); }
+}
+
+@keyframes raven-drift-c {
+  to { transform: translate(10px, 4px) rotate(-0.8deg); }
+}
+
+@keyframes flame-flicker-left {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1, 1); opacity: 0.95; }
+  13% { transform: translate3d(-1px, 1px, 0) rotate(-0.8deg) scale(0.985, 0.992); opacity: 0.91; }
+  29% { transform: translate3d(1px, -3px, 0) rotate(1.15deg) scale(1.025, 1.035); opacity: 0.98; }
+  47% { transform: translate3d(-2px, -1px, 0) rotate(-1.35deg) scale(0.97, 1.012); opacity: 0.93; }
+  66% { transform: translate3d(2px, -4px, 0) rotate(0.9deg) scale(1.018, 1.048); opacity: 0.99; }
+  82% { transform: translate3d(0, 1px, 0) rotate(-0.45deg) scale(0.992, 0.985); opacity: 0.92; }
+}
+
+@keyframes flame-flicker-right {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1, 1); opacity: 0.95; }
+  11% { transform: translate3d(2px, -2px, 0) rotate(1deg) scale(1.018, 1.026); opacity: 0.98; }
+  28% { transform: translate3d(-1px, 1px, 0) rotate(-0.65deg) scale(0.982, 0.989); opacity: 0.92; }
+  44% { transform: translate3d(1px, -4px, 0) rotate(1.3deg) scale(1.027, 1.046); opacity: 0.99; }
+  61% { transform: translate3d(-2px, -1px, 0) rotate(-1.1deg) scale(0.973, 1.014); opacity: 0.93; }
+  79% { transform: translate3d(1px, -3px, 0) rotate(0.55deg) scale(1.012, 1.035); opacity: 0.97; }
+  90% { transform: translate3d(0, 1px, 0) rotate(-0.35deg) scale(0.994, 0.986); opacity: 0.91; }
+}
+
+@keyframes fire-light-pulse-left {
+  0%, 100% { transform: scale(0.98, 0.97); opacity: 0.67; }
+  23% { transform: scale(1.035, 1.015); opacity: 0.81; }
+  51% { transform: scale(0.995, 1.025); opacity: 0.72; }
+  74% { transform: scale(1.055, 1.04); opacity: 0.85; }
+}
+
+@keyframes fire-light-pulse-right {
+  0%, 100% { transform: scale(1.02, 1); opacity: 0.76; }
+  19% { transform: scale(0.98, 0.97); opacity: 0.66; }
+  43% { transform: scale(1.045, 1.035); opacity: 0.84; }
+  67% { transform: scale(1, 1.02); opacity: 0.71; }
+  86% { transform: scale(1.055, 1.025); opacity: 0.82; }
+}
+
+@keyframes ember-rise {
+  0%, 18% {
+    transform: translate3d(0, 0, 0) scale(0.35);
+    opacity: 0;
+  }
+  27% { opacity: 0.95; }
+  54% { opacity: 0.72; }
+  78% { opacity: 0.38; }
+  100% {
+    transform: translate3d(var(--spark-drift), -148px, 0) scale(0.08);
+    opacity: 0;
+  }
+}
+
+body.preview-mode {
+  background: #111;
+}
+
+body.preview-mode #overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raven-flying,
+  .fire-flame,
+  .fire-light,
+  .fire-spark {
+    animation: none !important;
+  }
+}

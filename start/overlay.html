@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryox Overlay – Stream startet gleich</title>
+    <link rel="stylesheet" href="../css/overlay.css">
+    <link rel="stylesheet" href="../css/start.css">
+</head>
+<body>
+<div id="overlay" class="start-scene">
+    <img class="overlay-layer overlay-background"
+         data-layer="background"
+         src="../assets/backgrounds/forest_master.png"
+         alt=""
+         draggable="false">
+
+    <div class="overlay-layer atmosphere-back" data-layer="atmosphere" aria-hidden="true"></div>
+
+    <img class="overlay-layer runestone-portal"
+         data-layer="portal"
+         src="../assets/portal/runestone_portal.png"
+         alt=""
+         draggable="false">
+
+    <div class="overlay-layer atmosphere-ground" data-layer="atmosphere" aria-hidden="true">
+        <span class="atmosphere-element portal-ground-shadow"></span>
+        <span class="atmosphere-element portal-ground-light"></span>
+    </div>
+
+    <img class="overlay-layer overlay-raven overlay-raven-left" data-layer="ravens" hidden
+         src="../assets/icons/raven_master.png" alt="" draggable="false">
+    <img class="overlay-layer overlay-raven overlay-raven-right" data-layer="ravens" hidden
+         src="../assets/icons/raven_master.png" alt="" draggable="false">
+
+    <div class="fire-module fire-module-left" data-layer="fire" hidden>
+        <canvas class="fire-canvas" aria-hidden="true"></canvas>
+        <img class="fire-brazier" src="../assets/fire/brazier_master.png" alt="" draggable="false">
+    </div>
+
+    <div class="fire-module fire-module-right" data-layer="fire" hidden>
+        <canvas class="fire-canvas" aria-hidden="true"></canvas>
+        <img class="fire-brazier" src="../assets/fire/brazier_master.png" alt="" draggable="false">
+    </div>
+
+    <div class="overlay-layer runestones-layer" data-layer="runestones" aria-hidden="true">
+        <img class="runestone runestone-01" src="../assets/runestones/runestone_01.png" alt="" draggable="false">
+        <img class="runestone runestone-02" src="../assets/runestones/runestone_02.png" alt="" draggable="false">
+        <img class="runestone runestone-03" src="../assets/runestones/runestone_03.png" alt="" draggable="false">
+        <img class="runestone runestone-04" src="../assets/runestones/runestone_04.png" alt="" draggable="false">
+        <img class="runestone runestone-05" src="../assets/runestones/runestone_05.png" alt="" draggable="false">
+    </div>
+
+    <div class="overlay-layer atmosphere-front" data-layer="atmosphere" aria-hidden="true"></div>
+    <div class="overlay-layer scene-grade" data-layer="atmosphere" aria-hidden="true"></div>
+
+    <div class="overlay-layer start-copy" aria-label="Stream startet gleich">
+        <h1 class="start-heading" data-layer="heading">Stream startet gleich</h1>
+        <p class="start-subtitle" data-layer="subtitle">Der Wald erwacht bald</p>
+    </div>
+
+    <p class="overlay-layer start-info" data-layer="info">
+        Hol dir noch was zu trinken – gleich geht’s los.
+    </p>
+
+    <img class="overlay-layer overlay-frame"
+         data-layer="frame"
+         src="../assets/frame/frame_master.png"
+         alt=""
+         draggable="false">
+
+    <img class="overlay-layer overlay-emblem"
+         data-layer="emblem"
+         src="../assets/frame/emblem_master.png"
+         alt=""
+         draggable="false">
+</div>
+<script src="../js/overlay.js"></script>
+</body>
+</html>

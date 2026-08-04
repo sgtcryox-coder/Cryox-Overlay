@@ -1,27 +1,65 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cryox Rahmentest v3</title>
-<link rel="stylesheet" href="css/frame.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cryox Overlay – Vorschau</title>
+  <link rel="stylesheet" href="css/overlay.css">
 </head>
-<body>
-<main class="frame-stage">
-  <div class="preview-background"></div>
+<body class="preview-mode">
+  <main id="overlay" aria-label="Cryox Overlay Vorschau">
+    <img class="overlay-layer overlay-background" data-layer="background" src="assets/backgrounds/forest_master.png" alt="" draggable="false">
+    <div class="overlay-layer atmosphere-back" data-layer="atmosphere" aria-hidden="true"></div>
+    <img class="overlay-layer runestone-portal" data-layer="portal" src="assets/portal/runestone_portal.png" alt="" draggable="false">
 
-  <div class="rail-h top"></div>
-  <div class="rail-h bottom"></div>
+    <div class="overlay-layer atmosphere-ground" data-layer="atmosphere" aria-hidden="true">
+      <span class="atmosphere-element portal-ground-shadow"></span>
+      <span class="atmosphere-element portal-ground-light"></span>
+    </div>
 
-  <div class="rail-v left"></div>
-  <div class="rail-v right"></div>
+    <div class="overlay-layer runestones-layer" data-layer="runestones" aria-hidden="true">
+      <img class="runestone runestone-01" src="assets/runestones/runestone_01.png" alt="" draggable="false">
+      <img class="runestone runestone-02" src="assets/runestones/runestone_02.png" alt="" draggable="false">
+      <img class="runestone runestone-03" src="assets/runestones/runestone_03.png" alt="" draggable="false">
+      <img class="runestone runestone-04" src="assets/runestones/runestone_04.png" alt="" draggable="false">
+      <img class="runestone runestone-05" src="assets/runestones/runestone_05.png" alt="" draggable="false">
+    </div>
 
-  <div class="corner tl"></div>
-  <div class="corner tr"></div>
-  <div class="corner bl"></div>
-  <div class="corner br"></div>
+    <div class="overlay-layer ravens-layer" data-layer="ravens" aria-hidden="true">
+      <img class="raven raven-flying raven-flying-01" src="assets/ravens/raven_flying_01.png" alt="" draggable="false">
+      <img class="raven raven-flying raven-flying-02" src="assets/ravens/raven_flying_02.png" alt="" draggable="false">
+      <img class="raven raven-flying raven-flying-03" src="assets/ravens/raven_flying_03.png" alt="" draggable="false">
+      <img class="raven raven-sitting raven-sitting-left" src="assets/ravens/raven_sitting_left.png" alt="" draggable="false">
+      <img class="raven raven-sitting raven-sitting-right-01" src="assets/ravens/raven_sitting_right_01.png" alt="" draggable="false">
+      <img class="raven raven-sitting raven-sitting-right-02" src="assets/ravens/raven_sitting_right_02.png" alt="" draggable="false">
+    </div>
 
-  <img class="emblem" src="assets/frame/emblem_master.png" alt="">
-</main>
+    <div class="overlay-layer fire-layer" data-layer="fire" aria-hidden="true">
+      <span class="atmosphere-element fire-light fire-light-left"></span>
+      <span class="atmosphere-element fire-light fire-light-right"></span>
+      <span class="fire-sparks fire-sparks-left" aria-hidden="true">
+        <i class="fire-spark"></i><i class="fire-spark"></i><i class="fire-spark"></i>
+        <i class="fire-spark"></i><i class="fire-spark"></i><i class="fire-spark"></i>
+      </span>
+      <span class="fire-sparks fire-sparks-right" aria-hidden="true">
+        <i class="fire-spark"></i><i class="fire-spark"></i><i class="fire-spark"></i>
+        <i class="fire-spark"></i><i class="fire-spark"></i><i class="fire-spark"></i>
+      </span>
+      <img class="fire-bowl fire-bowl-left" src="assets/fire/brazier_master.png" alt="" draggable="false">
+      <img class="fire-flame fire-flame-left" src="assets/fire/bowl_flame.png" alt="" draggable="false">
+      <img class="fire-bowl fire-bowl-left fire-bowl-front" src="assets/fire/brazier_master.png" alt="" draggable="false">
+      <img class="fire-bowl fire-bowl-right" src="assets/fire/brazier_master.png" alt="" draggable="false">
+      <img class="fire-flame fire-flame-right" src="assets/fire/bowl_flame.png" alt="" draggable="false">
+      <img class="fire-bowl fire-bowl-right fire-bowl-front" src="assets/fire/brazier_master.png" alt="" draggable="false">
+    </div>
+
+    <div class="overlay-layer atmosphere-front" data-layer="atmosphere" aria-hidden="true"></div>
+    <div class="overlay-layer scene-grade" data-layer="atmosphere" aria-hidden="true"></div>
+
+    <img class="overlay-layer overlay-frame" data-layer="frame" src="assets/frame/frame_master.png" alt="" draggable="false">
+    <img class="overlay-layer overlay-emblem" data-layer="emblem" src="assets/frame/emblem_master.png" alt="" draggable="false">
+  </main>
+
+  <script src="js/overlay.js"></script>
 </body>
 </html>

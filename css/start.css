@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Cinzel";
+  src: url("../assets/fonts/cinzel-latin-900-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IM FELL DW Pica";
+  src: url("../assets/fonts/im-fell-dw-pica-latin-400-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --start-red: #b51f23;
+  --start-red-dark: #380607;
+  --start-ivory: #d8c8a5;
+}
+
+.start-copy {
+  z-index: 30;
+  top: 300px;
+  left: 50%;
+  width: 1320px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.start-heading {
+  margin: 0;
+  color: var(--start-red);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 104px;
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow:
+    0 3px 0 var(--start-red-dark),
+    0 0 7px #000,
+    0 0 20px rgba(181, 31, 35, 0.62);
+}
+
+.start-subtitle {
+  margin: 22px 0 0;
+  color: var(--start-ivory);
+  font-family: "IM FELL DW Pica", Georgia, serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px #000, 0 0 14px rgba(0, 0, 0, 0.9);
+}
+
+.start-info {
+  z-index: 30;
+  bottom: 94px;
+  left: 50%;
+  width: 1100px;
+  margin: 0;
+  color: var(--start-ivory);
+  font-family: "IM FELL DW Pica", Georgia, serif;
+  font-size: 31px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  text-shadow: 0 2px 6px #000, 0 0 12px #000;
+}
+
+.start-heading[hidden],
+.start-subtitle[hidden],
+.start-info[hidden] {
+  display: none;
+}

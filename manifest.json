@@ -1,9 +1,27 @@
 {
+  "name": "Cryox OBS Overlay",
+  "version": "1.3.0",
   "resolution": "1920x1080",
+  "entry": "live/overlay.html",
+  "preview": "frame-test.html",
+  "layers": [
+    "background",
+    "portal",
+    "runestones",
+    "ravens",
+    "fire",
+    "atmosphere",
+    "frame",
+    "emblem"
+  ],
   "assets": {
-    "corner": "assets/frame/corner_master.png",
-    "side": "assets/frame/side_master.png",
-    "top": "assets/frame/top_master.png",
-    "emblem": "assets/frame/emblem_master.png"
+    "background": "assets/backgrounds/forest_master.png",
+    "portal": "assets/portal/runestone_portal.png",
+    "frame": "assets/frame/frame_master.png",
+    "emblem": "assets/frame/emblem_master.png",
+    "runestones": "assets/runestones/",
+    "ravens": "assets/ravens/",
+    "bowl": "assets/fire/brazier_master.png",
+    "flame": "assets/fire/bowl_flame.png"
   }
 }

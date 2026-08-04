@@ -1,0 +1,16 @@
+CRYOX OVERLAY IN OBS
+
+1. Den Ordner an einem festen Ort entpacken.
+2. In OBS eine neue Browserquelle anlegen.
+3. "Lokale Datei" aktivieren.
+4. live/overlay.html auswählen.
+5. Breite: 1920
+6. Höhe: 1080
+7. Benutzerdefiniertes CSS leer lassen.
+
+Vorschau im Browser: frame-test.html
+
+Alle Grafiken bleiben als einzelne Dateien und HTML-Ebenen erhalten.
+
+Die Feueranimation startet automatisch.
+Optional: ?firemotion=0 friert nur das Feuer ein, ?motion=0 alle Bewegungen.
